@@ -1,0 +1,33 @@
+
+8adik feladatsor 1. feladattípus
+Egy teherautó rakománnyi 500 milliliteres üdítőitalból 10 palackot véletlenszerűen kiválasztva és lemérve azok űrtartalmát az alábbi, milliliterben kifejezett értékeket kaptuk:
+506, 494, 485, 484, 504, 494, 490, 504, 508, 497.
+Ismert, hogy a palackokba töltött üdítőital mennyisége normális eloszlású 9 ml szórással. 92%-os döntési szintet használva vizsgálja meg a gyártó azon állítását, hogy a palackokba átlagosan 500 milliliter üdítőitalt töltöttek!
+data=[506,494,485,484,504,494,490,504,508,497]
+H0 : m = 650m;
+H1 : m ><650mm
+sigma=8 -> z-próba
+[a,b,c,z]=ztest(data,500,9,"Alpha",0.08)
+
+alpha=0.08;
+
+cval=norminv(1-alpha/2);
+[-cval cval]
+2. feladattípus
+Egy gabonaraktárban 80 kg-os kiszerelésben búzát csomagolnak. A havi minőségellenőrzés során azt is meg akarták vizsgálni, hogy a raktárból kikerülő zsákokban tényleg 80kg búza van-e, ezért lemértek nyolc darab véletlenül kiválasztott zsákot. Eredményül a következőket kapták:
+78.8, 83.3, 84.1, 84.3, 80.1, 82.8, 79.8, 79.2.
+Hipotéziseit és az adatokra vonatkozó feltételeit pontosan megfogalmazva döntsön 97%-os szinten, a zsákok átlagos töltőtömege tényleg 80 kg-e!
+
+clear;
+data=[78.8, 83.3, 84.1, 84.3, 80.1, 82.8, 79.8, 79.2]
+H0: m = 80
+H1: m <> 80 (2-oldali)
+alpha=0.03
+df= 7(8-1 - szabadsági fok)
+
+[a,~,~,t] = ttest(data,80)
+
+alpha=0.03;
+
+cval=tinv(1-alpha/2,7)
+EZ=[-cval,cval]
