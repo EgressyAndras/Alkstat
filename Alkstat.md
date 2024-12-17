@@ -184,42 +184,105 @@ $$D^2X = \text{Var}(X) = EX^2 - E^2X$$
 
 ---
 
-### Eloszlásfüggvény  
-**Definíció**: $$F(x) = P(X \leq x)$$  
+## Eloszlásfüggvény  
+**Definíció**: Megadja, hogy a valószínűségi változó egy adott értékig bezárólag mekkora valószínűséggel vesz fel értéket. Diszkrét eloszlásfüggvénynél ez egy lépcsős függvény.  
+$F_X(x)=P(X<x)$
 
-#### Tulajdonságai:  
-- Monoton növekvő.  
-- $$\lim_{x \to -\infty} F(x) = 0$$, $$\lim_{x \to +\infty} F(x) = 1$$  
+![diszkret eloszlas](/diszkel.jpg)
+### Diszkrét eloszlásfüggvény tulajdonságai:  
+- A függvény monoton növekvő.  
+- A függvény bal-folytonos. 
+- $\lim_{x→\infty}F(x) = 1, \lim_{x→-\infty}F(x) = 0$  
 
 ---
 
-### Abszolút folytonos eloszlások  
+# 4. előadás
+## Abszolút folytonos eloszlásfüggvény tulajdonságai  
+$F(b)-F(a)$: Az érték [a, b] intervallumba esésének valószínűsége.  
+![abszolut folytonos eloszlas](/fbfa.jpg)
 
-#### Eloszlásfüggvény tulajdonságai  
-$$F(b) - F(a)$$: Az érték \( [a, b] \) intervallumba esésének valószínűsége.  
+---
 
-#### Sűrűségfüggvény  
+## Sűrűségfüggvény  
 **Definíció**: Deriváltja az eloszlásfüggvénynek:  
-$$f(x) = \frac{d}{dx} F(x)$$  
+Legyen $f$ a sűrűségfüggvény, $F$ az eloszlásfüggvény
+$$f(x) = F'(x)$$  
+$$F(x) = \int_{-\infty}^xf(x)dx$$  
+**Tulajdonságai:**
+  - $\lim_{x→-\infty}f(x) = 0$
+  - $\lim_{x→\infty}f(x) = 1$
+  - $\int_{-\infty}^\infty f(x)dx = 1$  
 
 ---
 
-### Nagy számok törvénye  
-**Tartalom**: Egy minta átlaga nagy mintaszám esetén közelít a várható értékhez.
+## Várható érték
+Itt nem alkalmazható a diszkrét várható érték képletet, mert megszámláhatatlan sok valószínűségi változó van.  
+**Képlete:** 
+$$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
+**Tulajdonságai:**
+  - Lineáris
+  - Ha $X\geq 0$, akkor $EX\geq 0$
+  - Ha $X\geq Y$, akkor $EX\geq Y$
+  - Ha $X\geq 0$ és $EX = 0$, akkor $P(X=0)=1$
 
 ---
 
-### Mintavételi módszerek  
+## Nagy számok törvénye  
+**Definíció**: Egy minta átlaga nagy mintaszám esetén közelít a várható értékhez.
+
+---
+
+## Nevezetes abszolút folytonos eloszlások
+  1. **Egyenletes eloszlás**  
+     ![eloszlas](egyenletes.png)
+     ![suruseg](egyenletessur.png)
+     - **Eloszlásfüggvény**:
+      $$
+      F(t) =
+      \begin{cases}
+      0, & \text{ha } t \leq a \\
+      \frac{t - a}{b - a}, & \text{ha } a < t \leq b \\
+      1, & \text{ha } b < t
+      \end{cases}
+      $$
+
+     - **Sűrűségfüggvény**:  
+      $$
+      F(t) =
+      \begin{cases}
+      \frac{1}{b - a}, & \text{ha } t \in [a,b] \\
+      0, & \text{ha } t \notin [a,b]
+      \end{cases}
+      $$
+     - **Várható érték**:  
+       $$E(X) = \frac{a+b}{2}$$  
+     - **Szórásnégyzet**:  
+       $$\text{Var}(X) = \frac{(b-a)^2}{12}$$  
+  2. **Normális eloszlás**  
+     ![eloszlas](norm.png)
+     ![suruseg](normsur.png)
+     - **Sűrűségfüggvény (csak 5ért)**  
+       $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+       ahol $\sigma$ a szórás, $\mu$ pedig a várható érték
+     - **Standardizálás**  
+     **Definíció:** Mivel minden normális eloszlás a standard normális egy transzformáltjával egyenlő, bármely x pont átalakítható egy vele azonos standard normális-beli z ponttá.
+     $$z = \frac{x-\mu}{\sigma}$$
+
+## Központ határeloszlás tétele
+**Definició:** egy elég nagy mintaméretű független és azonos eloszlású valószínűségi változók összege (vagy átlag) közelítőleg normális eloszlást követ, még akkor is, ha az eredeti változók eloszlása nem normális.
+
+# 5. előadás
+## Mintavételi módszerek  
 - **Véletlenszerű mintavétel**: Minden elemnek azonos esélye van bekerülni.  
 
-#### Mintátlag  
+### Mintátlag  
 - $$\bar{X}$$: Mintában szereplő elemek átlaga.  
 - Tulajdonság: Mintanagyság növelésével $$\bar{X}$$ közeledik \( E(X) \)-hez.  
 
-#### Medián  
+### Medián  
 Az az érték, amelynél a minta elemeinek fele kisebb, fele nagyobb.  
 
-#### Kvantilis  
+### Kvantilis  
 Az \( q \)-adik kvantilis az az érték, amelynél az elemek \( q \)-ad része kisebb.  
 
 ---
@@ -242,41 +305,6 @@ Az \( q \)-adik kvantilis az az érték, amelynél az elemek \( q \)-ad része k
 
 #### Egyenletes eloszlás  
 **Definíció**: Az \( [a, b] \) intervallumban minden érték azonos valószínűséggel fordul elő.  
-
-- **Sűrűségfüggvény**:  
-  $$f(x) = 
-  \begin{cases} 
-  \frac{1}{b-a}, & \text{ha } x \in [a, b] \\
-  0, & \text{egyébként} 
-  \end{cases}$$  
-
-- **Eloszlásfüggvény**:  
-  $$F(x) = 
-  \begin{cases} 
-  0, & \text{ha } x < a \\
-  \frac{x-a}{b-a}, & \text{ha } x \in [a, b] \\
-  1, & \text{ha } x > b 
-  \end{cases}$$  
-
-- **Várható érték**:  
-  $$E(X) = \frac{a+b}{2}$$  
-
-- **Szórásnégyzet**:  
-  $$\text{Var}(X) = \frac{(b-a)^2}{12}$$  
-
----
-
-#### Normális eloszlás  
-**Definíció**: Folytonos eloszlás, amelyet a \( \mu \) várható érték és a \( \sigma^2 \) szórásnégyzet paraméterez.  
-
-- **Sűrűségfüggvény**:  
-  $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$  
-
-- **Várható érték**:  
-  $$E(X) = \mu$$  
-
-- **Szórásnégyzet**:  
-  $$\text{Var}(X) = \sigma^2$$  
 
 ---
 
