@@ -174,12 +174,12 @@ $$D^2X = \text{Var}(X) = EX^2 - E^2X$$
 2. $k = 0$ szorzó elhagyható, lehet egyszerűsíteni a $k$-val, tehát:  
    $$EX = \sum_{k=1}^\infty\frac{\lambda^k}{(k-1)!}e^{-\lambda}$$  
 3. $k-1$ helyére írjunk $l$-t, tehát:
-   $$EX = \sum_{l=0}^\infty\frac{\lambda^{l+1}}{l!}e^{-\lambda}$$ 
-4. Kiemelünk egy $\lambda$-t a számlálóból, kihozzuk a szumma elé, és kiemeljük az $e^{-\lambda}$ 
-   $$EX = \lambda e^{-\lambda} \sum_{l=0}^\infty\frac{\lambda^{l}}{l!}$$ 
-5. $\sum_{l=0}^\infty\frac{\lambda^{l}}{l!} = e^\lambda$ Taylor-sort felhasználva, ebből következik
+   $$EX = \sum_{l=0}^\infty\frac{\lambda^{l+1}}{l!}e^{-\lambda}$$  
+4. Kiemelünk egy $\lambda$-t a számlálóból, kihozzuk a szumma elé, és kiemeljük az $e^{-\lambda}$  
+   $$EX = \lambda e^{-\lambda} \sum_{l=0}^\infty\frac{\lambda^{l}}{l!}$$  
+5. $\sum_{l=0}^\infty\frac{\lambda^{l}}{l!} = e^\lambda$ Taylor-sort felhasználva, ebből következik  
    $$EX = \lambda e^{-\lambda} e^\lambda$$
-6. $e^\lambda \cdot \frac{1}{e^\lambda} = 1$, tehát:
+6. $e^\lambda \cdot \frac{1}{e^\lambda} = 1$, tehát:  
    $$EX = \lambda$$
 
 ---
