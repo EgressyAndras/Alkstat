@@ -1,4 +1,5 @@
-### Kombinatorika  
+# 1. előadás
+## Kombinatorika  
 **Permutáció**: *n* megkülönböztethető elemek rendezett sorozata  
 $$P_n = n!$$  
 **Ismétléses permutáció**:  
@@ -13,8 +14,8 @@ $$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$
 $$C_n^{k,r} = \binom{n+k-1}{k}$$  
 
 ---
-
-### Valószínűségi mező  
+# 2. előadás
+## Valószínűségi mező  
 **Definíció**: Egy K kisérlet eredményei, amelyeket nem tudunk felosztani kisebb részekre **elemi eseményeknek** nevezzük. Az elemi eseményeket ***ω*** jelölik. Az összes elemi esemény halmazát **mintatérnek** (valószínűségi térnek) nevezzük. Jelölése: ***Ω***
 
 - **Példa**:  
@@ -22,7 +23,7 @@ $$C_n^{k,r} = \binom{n+k-1}{k}$$
 
 ---
 
-### Relatív gyakoriság
+## Relatív gyakoriság
 
 **Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:
 $$\frac{k_a}{n}$$
@@ -30,7 +31,7 @@ nevezzük **relatív gyakoriságnak**.
 
 ---
 
-### Eloszlás  
+## Eloszlás  
 Ω = {$ω_1, ..., ω_N$} mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.
 Például eloszlás lesz  
 $$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
@@ -40,18 +41,15 @@ $$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
 - a valószínűségek összege 1
   $$\sum_{i=1}^Np_i = 1$$
 
----
-
-### Klasszikus valószínűség
-**Definíció:** ha egy kisérlet lehetséges kimenetelei egyenlően valószínűek akkor A esemény valószínűsége:
-$$P(A) = \frac{\text{kedvező esetek száma}} {\text{összes lehetséges eset száma}}$$
-
----
 
 ### Diszkrét eloszlás
-$$\sum_{i=1}^\infin p_i = 1$$
+$$\sum_{i=1}^\infty p_i = 1$$
 
 ---
+
+## Klasszikus valószínűség
+**Definíció:** ha egy kisérlet lehetséges kimenetelei egyenlően valószínűek akkor A esemény valószínűsége:  
+$$P(A) = \frac{\text{kedvező esetek száma}} {\text{összes lehetséges eset száma}}$$
 
 ### A valószínűség geometriai kiszámítása
 
@@ -60,77 +58,103 @@ ahol $\lambda$ a hossz, terület vagy térfogat, ha egyenesen, síkon vagy térb
 
 ---
 
-### Feltételes valószínűség  
+## Feltételes valószínűség  
 **Definíció**:  
 A feltételes valószínűség megmutatja $A$ valószínűségét, ha $B$ bekövetkezett:  
 $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$  
 
 ---
 
-### Teljes valószínűség tétele  
-**Definíció**:  
-Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
+## Teljes valószínűség tétele  
+**Definíció**: Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
 $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$  
 
 ---
 
-### Bayes tétel  
+## Bayes tétel  
 **Bayes formula**:  
 $$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
 **Bayes tétel**:
-$$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infin P(A|B_j)P(B_j)}$$  
+$$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infty P(A|B_j)P(B_j)}$$  
 
 ---
 
-### Eseményfüggetlenség  
+## Eseményfüggetlenség  
 **Definíció**: $A$ esemény független $B$ eseménytől, ha B bekövetkezése nincs hatással $A$ valószínűségére. Azaz:  
 $$P(A|B) = P(A)$$
 **Definíció**: Azt mondjuk hogy $A$ és $B$ **független**, ha:
 $$P(A \cap B) = P(A) \cdot P(B)$$  
 
----
-
 ### Páronkénti függetlenség
 **Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **páronként** függetlenek, ha közülük bármely kettő független, azaz:
 $$P(A_iA_j) = P(A_i)P(A_j), i\not ={j}$$
 
+### Teljes függetlenség
 **Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **teljesen** függetlenek, ha bármely eseményszámra és bármely indexű eseményekre független, azaz:
 
 $$P(A_{i_1}A_{i_2}...A_{i_k}) = P(A_{i_1})P(A_{i_2})...P(A_{i_k})$$
 
 ---
-### Diszkrét eloszlások
-#### Várható érték  
+
+# 3. előadás
+## Valószínűségi változó
+**Definíció**: adott $\Omega$ eseménytér, $\mathcal{F}$ eseményhalmaz. A valószínűségi változó egy olyan függvény, amely az eseményhalmazból leképzést készít a valós számok egy megszámlálható halmazává. $X:\mathcal{F}\rArr D$
+### Diszkrét valószínűségi változó
+**Definíció**: olyan valószínűségi változó, melynek értékkészlete megszámlálható  
+Például kockadobás:  
+$$P(X = 1) = \frac{1}{6}$$
+$$P(X = 2) = \frac{1}{6}$$
+$$P(X = 3) = \frac{1}{6}$$
+$$P(X = 4) = \frac{1}{6}$$
+$$P(X = 5) = \frac{1}{6}$$
+$$P(X = 6) = \frac{1}{6}$$
+---
+
+## Nevezetes diszkrét eloszlások  
+
+1. **Hipergeometrikus eloszlás**:
+   - $X \sim Hyper(N, M, n)$
+   - **Jelentése:** Összesen $N$ golyó van a dobozban, benne $M$ piros golyó, $N-M$ fehér golyó. Ki szeretnénk húzni $n$ darabot belőlük **visszatevés nélkül**. 
+   - **Képlete:**
+   $$h_k = P(X = k) = \frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}$$
+   ahol $k$ a kihúzni kívánt piros golyók száma.
+   - **Várható értéke:** $\Epsilon=\frac{Mn}{N}$
+
+2. **Binomiális eloszlás**:  
+   - $X \sim Binom(n, p)$
+   - **Jelentése:** Összesen $N$ golyó van a dobozban, benne $M$ piros golyó, $N-M$ fehér golyó. Ki szeretnénk húzni $n$ darabot belőlük **visszatevéssel**. $p = \frac{M}{N}$, vagyis a piros golyók relatív valószínűsége.
+   - **Képlete:** 
+     $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
+   - **Várható értéke:** $\Epsilon=n \cdot p$
+
+3. **Poisson-eloszlás**:  
+   - $X \sim Poisson(\lambda)$
+   - **Jelentése:** Akkor használjuk, ha egy adott időintervallumon bekövetkező események számát szeretnénk jellemezni.  
+   - **Például**: egy telefonközpontba átlagosan $\lambda=5$ hívás érkezik percenként. Mi annak a valószínűsége, hogy egy adott percben pontosan 3 hívás érkezik?
+   - **Képlete**:  
+     $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
+   - **Várható értéke:** $\Epsilon=\lambda$
+
+4. **Negatív binomiális eloszlás**:  
+   - $X \sim NB(r, p)$
+   - **Jelentése**: Addig figyeljük a sorozatot, amíg $r$ siker nem következik be. Egy siker valószínűsége $p$.
+   - **Például**: Addig dobunk dobókockával, amíg 2 darab 6-ost nem dobunk. Itt $p=1/6, r=2$.
+     - **Részesete**: Ha $r=1$, akkor **geometrikus eloszlás**ról beszélünk
+     - **Képlete**: $P(X = 1+k) = p(1-p)^k$
+   - **Várható értéke:** $\Epsilon=\frac{r}{p}$
+
+---
+
+## Várható érték  
 **Definíció**: Egy valószínűségi változó súlyozott átlaga.  
 $$E(X) = \sum_{x \in X} x \cdot P(X = x)$$  
 
-#### Szórásnégyzet (variancia)  
+## Szórásnégyzet (variancia)  
 **Definíció**: A várható értéktől való eltérések négyzetének várható értéke.  
 $$\text{Var}(X) = E(X^2) - (E(X))^2$$  
 
 ---
 
-### Nevezetes diszkrét eloszlások  
-
-1. **Binomiális eloszlás**:  
-   - Képlete:  
-     $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
-     ahol \( n \) a kísérletek száma, \( p \) az esemény bekövetkezésének valószínűsége.  
-   - Várható érték: $$E(X) = n \cdot p$$  
-
-2. **Poisson-eloszlás**:  
-   - Képlete:  
-     $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$  
-     ahol \( \lambda \) az esemény várható értéke.  
-   - Várható érték: $$E(X) = \lambda$$  
-
-3. **Geometrikus eloszlás**:  
-   - Képlete:  
-     $$P(X = k) = (1-p)^{k-1} \cdot p$$  
-     ahol \( p \) az esemény valószínűsége.  
-   - Várható érték: $$E(X) = \frac{1}{p}$$  
-
----
 
 
 ### Eloszlásfüggvény  
