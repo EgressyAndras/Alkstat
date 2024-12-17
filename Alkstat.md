@@ -25,14 +25,14 @@ $$C_n^{k,r} = \binom{n+k-1}{k}$$
 
 ## Relatív gyakoriság
 
-**Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:
-$$\frac{k_a}{n}$$
+**Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:  
+$$\frac{k_a}{n}$$  
 nevezzük **relatív gyakoriságnak**.
 
 ---
 
 ## Eloszlás  
-Ω = {$ω_1, ..., ω_N$} mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.
+$Ω = \{ω_1,...,ω_N\}$ mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.
 Például eloszlás lesz  
 $$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
 
@@ -40,10 +40,6 @@ $$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
 - $p_i$ számok nem negatívak
 - a valószínűségek összege 1
   $$\sum_{i=1}^Np_i = 1$$
-
-
-### Diszkrét eloszlás
-$$\sum_{i=1}^\infty p_i = 1$$
 
 ---
 
@@ -53,7 +49,7 @@ $$P(A) = \frac{\text{kedvező esetek száma}} {\text{összes lehetséges eset sz
 
 ### A valószínűség geometriai kiszámítása
 
-$$P(A) = \lambda(\text{pont})/\lambda(\text{összes})$$
+$$P(A) = \lambda(\text{pont})/\lambda(\text{összes})$$  
 ahol $\lambda$ a hossz, terület vagy térfogat, ha egyenesen, síkon vagy térben vagyunk.
 
 ---
@@ -74,14 +70,14 @@ $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$
 ## Bayes tétel  
 **Bayes formula**:  
 $$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
-**Bayes tétel**:
+**Bayes tétel**:  
 $$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infty P(A|B_j)P(B_j)}$$  
 
 ---
 
 ## Eseményfüggetlenség  
-**Definíció**: $A$ esemény független $B$ eseménytől, ha B bekövetkezése nincs hatással $A$ valószínűségére. Azaz:  
-$$P(A|B) = P(A)$$
+**Definíció**: $A$ esemény független $B$ eseménytől, ha B bekövetkezése nincs hatással $A$ valószínűségére. Azaz:
+$$P(A|B) = P(A)$$  
 **Definíció**: Azt mondjuk hogy $A$ és $B$ **független**, ha:
 $$P(A \cap B) = P(A) \cdot P(B)$$  
 
@@ -98,16 +94,42 @@ $$P(A_{i_1}A_{i_2}...A_{i_k}) = P(A_{i_1})P(A_{i_2})...P(A_{i_k})$$
 
 # 3. előadás
 ## Valószínűségi változó
-**Definíció**: adott $\Omega$ eseménytér, $\mathcal{F}$ eseményhalmaz. A valószínűségi változó egy olyan függvény, amely az eseményhalmazból leképzést készít a valós számok egy megszámlálható halmazává. $X:\mathcal{F}\rArr D$
-### Diszkrét valószínűségi változó
+**Definíció**: adott $\Omega$ eseménytér, $\mathcal{F}$ eseményhalmaz. A valószínűségi változó egy olyan függvény, amely az eseményhalmazból leképzést készít a valós számok egy megszámlálható halmazává. $X:\mathcal{F} → D$
+
+---
+
+## Diszkrét valószínűségi változó
 **Definíció**: olyan valószínűségi változó, melynek értékkészlete megszámlálható  
-Például kockadobás:  
-$$P(X = 1) = \frac{1}{6}$$
-$$P(X = 2) = \frac{1}{6}$$
-$$P(X = 3) = \frac{1}{6}$$
-$$P(X = 4) = \frac{1}{6}$$
-$$P(X = 5) = \frac{1}{6}$$
-$$P(X = 6) = \frac{1}{6}$$
+Például kockadobás:
+$$P(X = 1) = \frac{1}{6}$$  
+$$P(X = 2) = \frac{1}{6}$$  
+$$P(X = 3) = \frac{1}{6}$$  
+$$P(X = 4) = \frac{1}{6}$$  
+$$P(X = 5) = \frac{1}{6}$$  
+$$P(X = 6) = \frac{1}{6}$$  
+
+---
+
+## Várható érték 
+
+**Definíció**: Egy valószínűségi változó súlyozott átlaga.  
+**Képlete**: $\sum_{k=1}^\infty p_kx_k$, ahol $p_k$ a valószínűség, $x_k$ az érték  
+**Például**:  Kockadobások várható értéke: $\frac{1}{6}\cdot1+\frac{1}{6}\cdot2+\frac{1}{6}\cdot3+\frac{1}{6}\cdot4+\frac{1}{6}\cdot5+\frac{1}{6}\cdot6 =3.5$  
+**Második momentum**: $EX^2 = \sum_{k=1}^\infty p_kx^2_k$  
+**Jellemzői**:
+  - Lineáris: 
+    - $E(X+Y)=EX+EY$
+    - $E(cX)=cE(X)$
+  - Ha $X$ és $Y$ Független, akkor $E(XY) = E(X) \cdot E(Y)$  
+
+---
+
+## Szórásnégyzet (variancia)  
+**Definíció**: A szórásnégyzet, más néven variancia megmutatja, hogy egy valószínűségi változó milyen mértékben szóródik a várható érték körül.  
+$$D^2X = \text{Var}(X) = EX^2 - E^2X$$  
+**Tulajdonságai**:
+  - $\text{Var}(aX+b)=a^2\text{Var}X$
+
 ---
 
 ## Nevezetes diszkrét eloszlások  
@@ -118,14 +140,14 @@ $$P(X = 6) = \frac{1}{6}$$
    - **Képlete:**
    $$h_k = P(X = k) = \frac{\binom{M}{k}\binom{N-M}{n-k}}{\binom{N}{n}}$$
    ahol $k$ a kihúzni kívánt piros golyók száma.
-   - **Várható értéke:** $\Epsilon=\frac{Mn}{N}$
+   - **Várható értéke:** $E=\frac{Mn}{N}$
 
 2. **Binomiális eloszlás**:  
    - $X \sim Binom(n, p)$
    - **Jelentése:** Összesen $N$ golyó van a dobozban, benne $M$ piros golyó, $N-M$ fehér golyó. Ki szeretnénk húzni $n$ darabot belőlük **visszatevéssel**. $p = \frac{M}{N}$, vagyis a piros golyók relatív valószínűsége.
    - **Képlete:** 
      $$P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}$$  
-   - **Várható értéke:** $\Epsilon=n \cdot p$
+   - **Várható értéke:** $E=n \cdot p$
 
 3. **Poisson-eloszlás**:  
    - $X \sim Poisson(\lambda)$
@@ -133,7 +155,7 @@ $$P(X = 6) = \frac{1}{6}$$
    - **Például**: egy telefonközpontba átlagosan $\lambda=5$ hívás érkezik percenként. Mi annak a valószínűsége, hogy egy adott percben pontosan 3 hívás érkezik?
    - **Képlete**:  
      $$P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}$$
-   - **Várható értéke:** $\Epsilon=\lambda$
+   - **Várható értéke:** $E=\lambda$
 
 4. **Negatív binomiális eloszlás**:  
    - $X \sim NB(r, p)$
@@ -141,21 +163,26 @@ $$P(X = 6) = \frac{1}{6}$$
    - **Például**: Addig dobunk dobókockával, amíg 2 darab 6-ost nem dobunk. Itt $p=1/6, r=2$.
      - **Részesete**: Ha $r=1$, akkor **geometrikus eloszlás**ról beszélünk
      - **Képlete**: $P(X = 1+k) = p(1-p)^k$
-   - **Várható értéke:** $\Epsilon=\frac{r}{p}$
+   - **Várható értéke:** $E=\frac{r}{p}$
 
 ---
 
-## Várható érték  
-**Definíció**: Egy valószínűségi változó súlyozott átlaga.  
-$$E(X) = \sum_{x \in X} x \cdot P(X = x)$$  
+## Poisson eloszlás várható értékének levezetése (5-ért)
 
-## Szórásnégyzet (variancia)  
-**Definíció**: A várható értéktől való eltérések négyzetének várható értéke.  
-$$\text{Var}(X) = E(X^2) - (E(X))^2$$  
+1. Felírjuk a várható érték képletét a Poisson eloszlásra  
+   $$EX = \sum_{k=0}^\infty k\cdot\frac{\lambda^k}{k!}e^{-\lambda}$$
+2. $k = 0$ szorzó elhagyható, lehet egyszerűsíteni a $k$-val, tehát:  
+   $$EX = \sum_{k=1}^\infty\frac{\lambda^k}{(k-1)!}e^{-\lambda}$$  
+3. $k-1$ helyére írjunk $l$-t, tehát:
+   $$EX = \sum_{l=0}^\infty\frac{\lambda^{l+1}}{l!}e^{-\lambda}$$ 
+4. Kiemelünk egy $\lambda$-t a számlálóból, kihozzuk a szumma elé, és kiemeljük az $e^{-\lambda}$ 
+   $$EX = \lambda e^{-\lambda} \sum_{l=0}^\infty\frac{\lambda^{l}}{l!}$$ 
+5. $\sum_{l=0}^\infty\frac{\lambda^{l}}{l!} = e^\lambda$ Taylor-sort felhasználva, ebből következik
+   $$EX = \lambda e^{-\lambda} e^\lambda$$
+6. $e^\lambda \cdot \frac{1}{e^\lambda} = 1$, tehát:
+   $$EX = \lambda$$
 
 ---
-
-
 
 ### Eloszlásfüggvény  
 **Definíció**: $$F(x) = P(X \leq x)$$  
