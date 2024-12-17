@@ -1,49 +1,105 @@
-### Kombinatorika
+### Kombinatorika  
 **Permutáció**: *n* megkülönböztethető elemek rendezett sorozata  
-$$P_n = n!$$
-**Ismétléses permutáció**:
-$$P_n^{k_1, k_2, ..., k_m} = \frac{n!}{k_1! \cdot k_2! \cdot \cdot \cdot k_m!} $$
+$$P_n = n!$$  
+**Ismétléses permutáció**:  
+$$P_n^{k_1, k_2, ..., k_m} = \frac{n!}{k_1! \cdot k_2! \cdot \cdot \cdot k_m!} $$  
 **Variáció**: Adott *n* elem *k* elemű részhalamzának rendezése  
-$$V_n^k = \frac{n!}{n-k!} $$
+$$V_n^k = \frac{n!}{n-k!} $$  
 **Ismétléses variáció**:  
-$$V_n^{k,r} = n^k $$
-**Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható
-$$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$
-**Ismétléses kombináció**:
-$$C_n^{k,r} = \binom{n+k-1}{k}$$
-
-### Valószínűség-változó  
-**Definíció**: Egy valószínűség-változó olyan függvény, amely a kísérlet kimeneteleinek halmazából a valós számok halmazába képez.  
-
-- **Példa**:  
-  Érmedobás esetén a kimenetelek \( \{Fej, Írás\} \), a valószínűség-változó hozzárendelhet:  
-  \( X(Fej) = 1 \), \( X(Írás) = 0 \).  
+$$V_n^{k,r} = n^k $$  
+**Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható  
+$$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$  
+**Ismétléses kombináció**:  
+$$C_n^{k,r} = \binom{n+k-1}{k}$$  
 
 ---
 
-### Diszkrét valószínűségi változó  
-**Definíció**: Olyan valószínűségi változó, amelynek értékkészlete megszámlálható.  
+### Valószínűségi mező  
+**Definíció**: Egy K kisérlet eredményei, amelyeket nem tudunk felosztani kisebb részekre **elemi eseményeknek** nevezzük. Az elemi eseményeket ***ω*** jelölik. Az összes elemi esemény halmazát **mintatérnek** (valószínűségi térnek) nevezzük. Jelölése: ***Ω***
 
-- **Példa**: Egy dobókocka eredményei \( X \in \{1, 2, 3, 4, 5, 6\} \).  
+- **Példa**:  
+  Érmedobás: $Ω = \{Fej,Írás\}$
+
+---
+
+### Relatív gyakoriság
+
+**Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:
+$$\frac{k_a}{n}$$
+nevezzük **relatív gyakoriságnak**.
 
 ---
 
 ### Eloszlás  
-**Definíció**: Egy valószínűségi változó lehetséges értékeihez rendel valószínűségeket.  
+Ω = {$ω_1, ..., ω_N$} mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.
+Például eloszlás lesz  
+$$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
 
-#### Jellemzői:  
-- **Értékkészlet**: A változó által felvehető értékek halmaza.  
-- **Valószínűségeloszlás**: Az értékekhez rendelt valószínűségek.  
-- **Várható érték**:  
-  $$E(X) = \sum_{i} x_i \cdot P(X = x_i)$$  
-- **Szórásnégyzet/variancia**:  
-  $$\text{Var}(X) = E\left[(X - E(X))^2\right]$$  
-- **Eloszlásfüggvény**: $$F(x) = P(X \leq x)$$  
+### Jellemzői
+- $p_i$ számok nem negatívak
+- a valószínűségek összege 1
+  $$\sum_{i=1}^Np_i = 1$$
 
 ---
 
-### Diszkrét eloszlások  
+### Klasszikus valószínűség
+**Definíció:** ha egy kisérlet lehetséges kimenetelei egyenlően valószínűek akkor A esemény valószínűsége:
+$$P(A) = \frac{\text{kedvező esetek száma}} {\text{összes lehetséges eset száma}}$$
 
+---
+
+### Diszkrét eloszlás
+$$\sum_{i=1}^\infin p_i = 1$$
+
+---
+
+### A valószínűség geometriai kiszámítása
+
+$$P(A) = \lambda(\text{pont})/\lambda(\text{összes})$$
+ahol $\lambda$ a hossz, terület vagy térfogat, ha egyenesen, síkon vagy térben vagyunk.
+
+---
+
+### Feltételes valószínűség  
+**Definíció**:  
+A feltételes valószínűség megmutatja $A$ valószínűségét, ha $B$ bekövetkezett:  
+$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$  
+
+---
+
+### Teljes valószínűség tétele  
+**Definíció**:  
+Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
+$$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$  
+
+---
+
+### Bayes tétel  
+**Bayes formula**:  
+$$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
+**Bayes tétel**:
+$$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infin P(A|B_j)P(B_j)}$$  
+
+---
+
+### Eseményfüggetlenség  
+**Definíció**: $A$ esemény független $B$ eseménytől, ha B bekövetkezése nincs hatással $A$ valószínűségére. Azaz:  
+$$P(A|B) = P(A)$$
+**Definíció**: Azt mondjuk hogy $A$ és $B$ **független**, ha:
+$$P(A \cap B) = P(A) \cdot P(B)$$  
+
+---
+
+### Páronkénti függetlenség
+**Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **páronként** függetlenek, ha közülük bármely kettő független, azaz:
+$$P(A_iA_j) = P(A_i)P(A_j), i\not ={j}$$
+
+**Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **teljesen** függetlenek, ha bármely eseményszámra és bármely indexű eseményekre független, azaz:
+
+$$P(A_{i_1}A_{i_2}...A_{i_k}) = P(A_{i_1})P(A_{i_2})...P(A_{i_k})$$
+
+---
+### Diszkrét eloszlások
 #### Várható érték  
 **Definíció**: Egy valószínűségi változó súlyozott átlaga.  
 $$E(X) = \sum_{x \in X} x \cdot P(X = x)$$  
@@ -76,33 +132,6 @@ $$\text{Var}(X) = E(X^2) - (E(X))^2$$
 
 ---
 
-### Feltételes valószínűség  
-**Definíció**:  
-A \( B \) esemény bekövetkezése mellett \( A \) esemény valószínűsége:  
-$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$  
-ahol \( P(B) > 0 \).  
-
----
-
-### Teljes valószínűség tétele  
-**Definíció**:  
-Ha az \( B_1, B_2, \dots, B_n \) események páronként kizárják egymást, és együttesen lefedik az eseménytér minden elemét:  
-$$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$  
-
----
-
-### Bayes-tétel  
-**Definíció**:  
-$$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
-ahol \( P(A) > 0 \).  
-
----
-
-### Eseményfüggetlenség  
-**Definíció**: Két esemény független, ha:  
-$$P(A \cap B) = P(A) \cdot P(B)$$  
-
----
 
 ### Eloszlásfüggvény  
 **Definíció**: $$F(x) = P(X \leq x)$$  
