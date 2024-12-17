@@ -235,11 +235,11 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
 ## Nevezetes abszolút folytonos eloszlások
   1. **Egyenletes eloszlás**  
      ![eloszlas](egyenletes.png)
-     ![suruseg](egyenletessur.png)
-     - **Eloszlásfüggvény**:
-      $$F(t) = \begin{cases} 0, & \text{if } t \leq a \\ \frac{t - a}{b - a}, & \text{if } a < t \leq b \\ 1, & \text{if } b < t \end{cases}$$
+     ![suruseg](egyenletessur.png)  
+     - **Eloszlásfüggvény**:  
+      ![eloszlasfuggveny](egyenleteseloszfv.png)  
      - **Sűrűségfüggvény**:  
-      $$F(t) = \begin{cases} \frac{1}{b - a}, & \text{ha } t \in [a,b] \\ 0, & \text{ha } t \notin [a,b] \end{cases}$$
+      ![surusegfuggveny](egyenletessurusegfv.png)  
      - **Várható érték**:  
        $$E(X) = \frac{a+b}{2}$$  
      - **Szórásnégyzet**:  
