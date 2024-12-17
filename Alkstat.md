@@ -1,3 +1,17 @@
+### Kombinatorika
+**Permutáció**: *n* megkülönböztethető elemek rendezett sorozata  
+$$P_n = n!$$
+**Ismétléses permutáció**:
+$$P_n^{k_1, k_2, ..., k_m} = \frac{n!}{k_1! \cdot k_2! \cdot \cdot \cdot k_m!} $$
+**Variáció**: Adott *n* elem *k* elemű részhalamzának rendezése  
+$$V_n^k = \frac{n!}{n-k!} $$
+**Ismétléses variáció**:  
+$$V_n^{k,r} = n^k $$
+**Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható
+$$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$
+**Ismétléses kombináció**:
+$$C_n^{k,r} = \binom{n+k-1}{k}$$
+
 ### Valószínűség-változó  
 **Definíció**: Egy valószínűség-változó olyan függvény, amely a kísérlet kimeneteleinek halmazából a valós számok halmazába képez.  
 
