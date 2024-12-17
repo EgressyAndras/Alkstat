@@ -237,23 +237,9 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
      ![eloszlas](egyenletes.png)
      ![suruseg](egyenletessur.png)
      - **Eloszlásfüggvény**:
-      $$
-      F(t) =
-      \begin{cases}
-      0, & \text{ha } t \leq a \\
-      \frac{t - a}{b - a}, & \text{ha } a < t \leq b \\
-      1, & \text{ha } b < t
-      \end{cases}
-      $$
-
+      $$F(t) = \begin{cases} 0, & \text{if } t \leq a \\ \frac{t - a}{b - a}, & \text{if } a < t \leq b \\ 1, & \text{if } b < t \end{cases}$$
      - **Sűrűségfüggvény**:  
-      $$
-      F(t) =
-      \begin{cases}
-      \frac{1}{b - a}, & \text{ha } t \in [a,b] \\
-      0, & \text{ha } t \notin [a,b]
-      \end{cases}
-      $$
+      $$F(t) = \begin{cases} \frac{1}{b - a}, & \text{ha } t \in [a,b] \\ 0, & \text{ha } t \notin [a,b] \end{cases}$$
      - **Várható érték**:  
        $$E(X) = \frac{a+b}{2}$$  
      - **Szórásnégyzet**:  
