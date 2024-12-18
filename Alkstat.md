@@ -87,6 +87,7 @@ $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$
 
 ## Teljes valószínűség tétele  
 - **Definíció**: Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
+
 $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$  
 - **Például**: Egy gyárban három gép gyárt termékeket.
   Az első gép a termékek 50%-át gyártja, és a hibás termékek aránya 2%.
@@ -105,8 +106,10 @@ $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$
 
 ## Bayes tétel  
 **Bayes formula**:  
+
 $$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
 **Bayes tétel**:  
+
 $$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infty P(A|B_j)P(B_j)}$$  
 
 - **Például**: Mennyi a valószínűsége, hogy a második gépből húzzuk ki a terméket, ha tudjuk hogy hibás?
@@ -116,12 +119,15 @@ $$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infty P(A|B_j)P(B_j)}$$
 
 ## Eseményfüggetlenség  
 **Definíció**: $A$ esemény független $B$ eseménytől, ha B bekövetkezése nincs hatással $A$ valószínűségére. Azaz:
+
 $$P(A|B) = P(A)$$  
 **Definíció**: Azt mondjuk hogy $A$ és $B$ **független**, ha:
+
 $$P(A \cap B) = P(A) \cdot P(B)$$  
 
 ### Páronkénti függetlenség
 **Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **páronként** függetlenek, ha közülük bármely kettő független, azaz:
+
 $$P(A_iA_j) = P(A_i)P(A_j), i\not ={j}$$
 
 ### Teljes függetlenség
@@ -254,7 +260,7 @@ $$D^2X = \text{Var}(X) = EX^2 - E^2X$$
 5. $\sum_{l=0}^\infty\frac{\lambda^{l}}{l!} = e^\lambda$ Taylor-sort felhasználva, ebből következik  
    $$EX = \lambda e^{-\lambda} e^\lambda$$
 6. $e^\lambda \cdot \frac{1}{e^\lambda} = 1$, tehát:  
-7. 
+
    $$EX = \lambda$$
 
 ---
@@ -267,22 +273,36 @@ $F_X(x)=P(X<x)$
 ### Diszkrét eloszlásfüggvény tulajdonságai:  
 - A függvény monoton növekvő.  
 - A függvény bal-folytonos. 
-- $\lim_{x→\infty}F(x) = 1, \lim_{x→-\infty}F(x) = 0$  
+- $\lim_{x→\infty}F(x) = 1, \lim_{x→-\infty}F(x) = 0$ 
+
+### Például
+Egy érme feldobásánál az eloszlásfüggvény:
+$F_x(x) = 0 \text{ a } x < 0 \text{ tartományban }$  
+$F_x(x) = \frac{1}{2} \text{ a } 0 \leq x < 1 \text{ tartományban }$  
+$F_x(x) = 1 \text{ a } x \geq 0 \text{ tartományban }$  
 
 ---
 
 # 4. előadás
 ## Abszolút folytonos eloszlásfüggvény tulajdonságai  
 $F(b)-F(a)$: Az érték [a, b] intervallumba esésének valószínűsége.  
+
+**Például**: a normális eloszlást felhasználva:  
+
+$$P(-1 \leq X \leq 1) = F_x(1) - F_x(-1)$$
+
 ![abszolut folytonos eloszlas](/fbfa.jpg)
 
 ---
 
 ## Sűrűségfüggvény  
 **Definíció**: Deriváltja az eloszlásfüggvénynek:  
-Legyen $f$ a sűrűségfüggvény, $F$ az eloszlásfüggvény
+Legyen $f$ a sűrűségfüggvény, $F$ az eloszlásfüggvény  
+
 $$f(x) = F'(x)$$  
+
 $$F(x) = \int_{-\infty}^xf(x)dx$$  
+
 **Tulajdonságai:**
   - $\lim_{x→-\infty}f(x) = 0$
   - $\lim_{x→\infty}f(x) = 1$
@@ -299,14 +319,15 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
 
 **Tulajdonságai:**
   - Lineáris
-  - Ha $X\geq 0$, akkor $EX\geq 0$
-  - Ha $X\geq Y$, akkor $EX\geq Y$
-  - Ha $X\geq 0$ és $EX = 0$, akkor $P(X=0)=1$
+  - Ha $X\geq 0$, akkor $EX\geq 0$ (ha egy valószínűségi változó $X$ nem negatív, akkor a várható értéke is nem negatív lesz.)
+  - Ha $X\geq Y$, akkor $EX\geq EY$ (ha $X$ minden egyes kimenetele nagyobb vagy egyenlő, mint $Y$ megfelelő kimenetele, akkor az $X$ várható értéke is nagyobb vagy egyenlő lesz, mint $Y$ várható értéke.)
+  - Ha $X\geq 0$ és $EX = 0$, akkor $P(X=0)=1$ (ha egy nem negatív valószínűségi változó várható értéke 0, akkor az esemény, hogy $X=0$, teljes valószínűséggel megtörténik)
 
 ---
 
 ## Nagy számok törvénye  
 **Definíció**: Egy minta átlaga nagy mintaszám esetén közelít a várható értékhez.
+**Például**: Tegyük fel, hogy egy érmét dobunk. Ha csak 5 alkalommal dobsz érmét, előfordulhat, hogy 4-szer fej és 1-szer írás lesz. Ha 1,000, 10,000 vagy több alkalommal dobod az érmét, az átlag egyre inkább közelíteni fog a 0.5-höz.
 
 ---
 
@@ -339,7 +360,7 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
 
 ## Kontingencia táblázat  
 
-**Definíció**: Többváltozós adatok elemzésére használt tábla, amely sorokban és oszlopokban gyakoriságokat vagy relatív gyakoriságokat mutat.  
+- **Definíció**: Többváltozós adatok elemzésére használt tábla, amely sorokban és oszlopokban gyakoriságokat vagy relatív gyakoriságokat mutat.  
 
 - **Marginalis (peremeloszlások)**:  
   A sorok és oszlopok összegzett értékei, amelyek az egyes változók eloszlását adják.  
@@ -358,7 +379,53 @@ $$p_{i.} = P(X = x_i) = \sum_{j=1}^\infty p_{ij}$$
 $$p_{.j} = P(X = x_i) = \sum_{i=1}^\infty p_{ij}$$  
 $$\sum_{i=1}^\infty \sum_{j=1}^\infty p_{ij} = 1$$  
 
+- **Függetlenség:** Két változó független, ha az együttes eloszlásuk a peremeloszlások szorzataként írható fel:    
+  
+  $$p_{ij} = p_{i.}p_{.j}$$  
 ---
+
+### Együttes eloszlásfüggvény  
+**Definíció**: Ez a függvény azt mutatja meg, hogy a két változó együttesen milyen valószínűséggel esik egy adott tartományba. Az együttes eloszlásfüggvény segít megérteni a két változó közötti kapcsolatot és azok együttes eloszlását. Két változó $X$ és $Y$ együttes eloszlása: $F(x, y)$
+
+- Tulajdonságok:  
+  - Monoton növekvő mindkét változó szerint.  
+
+  - X eloszlásfüggvénye: $F_X(x) = \lim_{y→\infty} F(x,y)$  
+  - Y eloszlásfüggvénye: $F_Y(y) = \lim_{x→\infty} F(x,y)$
+    
+
+---
+
+### Együttes sűrűségfüggvény  
+**Definíció**: két vagy több valószínűségi változó közös sűrűségi függvénye. Két valószínűségi változó $X$ és $Y$ esetén az együttes sűrűségfüggvény 
+$f_{X,Y}(x,y)$ megadja a valószínűségi változók együttes sűrűségét egy adott $(x,y)$ pontban. Ez a függvény az egyes változók együttes eloszlásának sűrűségét írja le, és segít meghatározni, hogy két valószínűségi változó hogyan viszonyul egymáshoz egy adott tartományban.
+
+---
+
+### Kovariancia  
+**Definíció**: Két változó közötti lineáris kapcsolat mértéke.  
+
+$$cov(X,Y) = E(XY)-EX \cdot EY$$
+
+---
+
+### Korreláció  
+- **Definíció**: A kovariancia és a szórások hányadosa, amely normált mértékét adja a lineáris kapcsolatnak.  
+
+$$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
+
+- **Lineáris erősség**:
+  A korrelációs együttható lényege abban rejlik, hogy segít megérteni, milyen erősen és milyen irányban kapcsolódik két valószínűségi változó, és milyen típusú kapcsolat áll fenn közöttük.  
+
+  $$-1 \leq corr(\xi(\text{xi}), \eta(\text{éta})) \leq 1$$  
+
+  Ha $corr(\xi, \eta) = 1$, akkor pozitív lineáris kapcsolat van közöttük (egyik nő, másik is nő)  
+
+  Ha $corr(\xi, \eta) = -1$, akkor negatív lineáris kapcsolat van közöttük (egyik nő, másik csökken)  
+
+  Ha $corr(\xi, \eta) = -1$, akkor nincs kapcsolat a két változó között
+
+# 7. előadás
 
 ## Mintavételi módszerek  
 - **Véletlenszerű mintavétel**: Minden elemnek azonos esélye van bekerülni.  
@@ -373,32 +440,9 @@ Az az érték, amelynél a minta elemeinek fele kisebb, fele nagyobb.
 ### Kvantilis  
 Az \( q \)-adik kvantilis az az érték, amelynél az elemek \( q \)-ad része kisebb.  
 
----
-
-### Illeszkedésvizsgálat  
-- **Próbastatisztika**:  
-  $$\chi^2 = \sum \frac{(O_i - E_i)^2}{E_i}$$  
-  ahol \( O_i \) a megfigyelt, \( E_i \) a várható gyakoriság.  
-- Mindig jobboldali próba.  
-
----
-
-### Függetlenségvizsgálat  
-- **Kontingenciatáblázat**: Sor- és oszlopgyakoriságok.  
-- Függetlenség, ha a peremeloszlások szorzata adja az együttes valószínűségeket.
-
----
-
-### Nevezetes eloszlások
-
-#### Egyenletes eloszlás  
-**Definíció**: Az \( [a, b] \) intervallumban minden érték azonos valószínűséggel fordul elő.  
-
----
-
 
 ### Függetlenség  
-**Definíció**: Két változó független, ha az együttes eloszlásuk a peremeloszlások szorzataként írható fel:  
+**Definíció**: 
 $$P(A \cap B) = P(A) \cdot P(B)$$  
 
 #### Példa:  
@@ -408,48 +452,6 @@ $$P(A \cap B) = P(A) \cdot P(B)$$
 
 ---
 
-### Együttes eloszlásfüggvény  
-**Definíció**: Két változó (\(X\) és \(Y\)) együttes eloszlása:  
-$$F_{X,Y}(x, y) = P(X \leq x, Y \leq y)$$  
-
-- Tulajdonságok:  
-  - Monoton növekvő mindkét változó szerint.  
-  - Határértékek:  
-    $$F_{X,Y}(\infty, y) = F_Y(y), \quad F_{X,Y}(x, \infty) = F_X(x)$$  
-
----
-
-### Együttes sűrűségfüggvény  
-**Definíció**: Ha \( X \) és \( Y \) folytonos valószínűségi változók:  
-$$f_{X,Y}(x, y) = \frac{\partial^2}{\partial x \partial y} F_{X,Y}(x, y)$$  
-
-- Tulajdonságok:  
-  - \( f_{X,Y}(x, y) \geq 0 \).  
-  - A teljes valószínűség integrálja:  
-    $$\int_{-\infty}^\infty \int_{-\infty}^\infty f_{X,Y}(x, y) \,dx\,dy = 1$$  
-
----
-
-### Kovariancia  
-**Definíció**: Két változó közötti lineáris kapcsolat mértéke.  
-$$\text{Cov}(X, Y) = E[(X - E(X))(Y - E(Y))]$$  
-
-- **Tulajdonságai**:  
-  - Ha \( \text{Cov}(X, Y) > 0 \), akkor \( X \) és \( Y \) pozitív lineáris kapcsolatban állnak.  
-  - Ha \( \text{Cov}(X, Y) < 0 \), akkor \( X \) és \( Y \) negatív lineáris kapcsolatban állnak.  
-  - Ha \( \text{Cov}(X, Y) = 0 \), akkor \( X \) és \( Y \) lineárisan függetlenek lehetnek.  
-
----
-
-### Korreláció  
-**Definíció**: A kovariancia és a szórások hányadosa, amely normált mértékét adja a lineáris kapcsolatnak.  
-$$\rho_{X,Y} = \frac{\text{Cov}(X, Y)}{\sigma_X \cdot \sigma_Y}$$  
-
-- **Tulajdonságai**:  
-  - \( \rho_{X,Y} \in [-1, 1] \).  
-  - Ha \( \rho_{X,Y} = 1 \), akkor \( X \) és \( Y \) teljesen pozitív lineáris kapcsolatban állnak.  
-  - Ha \( \rho_{X,Y} = -1 \), akkor \( X \) és \( Y \) teljesen negatív lineáris kapcsolatban állnak.  
-  - Ha \( \rho_{X,Y} = 0 \), akkor nincs lineáris kapcsolat \( X \) és \( Y \) között.  
 
 ---
 
