@@ -423,7 +423,7 @@ $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
 
   Ha $corr(\xi, \eta) = -1$, akkor negatív lineáris kapcsolat van közöttük (egyik nő, másik csökken)  
 
-  Ha $corr(\xi, \eta) = -1$, akkor nincs kapcsolat a két változó között
+  Ha $corr(\xi, \eta) = 0$, akkor nincs kapcsolat a két változó között
 
 # 7. előadás
 
