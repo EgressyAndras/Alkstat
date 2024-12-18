@@ -452,8 +452,7 @@ $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
 
 - **Például**: Tegyük fel hogy a minta adatai a következőek:  
 
-  ![image](https://github.com/user-attachments/assets/ee808393-fdb0-4eec-b478-145c7a21311f)
-
+  $$X_1^* = 2, X_2^* = 4, X_3^* = 6, X_4^* = 8, X_5^* = 10$$  
 
   Ha $x \leq 2$ akkor $F_n^*(x) = 0$,  
 
