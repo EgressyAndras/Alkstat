@@ -1,22 +1,22 @@
 # 1. előadás
 ## Kombinatorika  
-**Permutáció**: *n* megkülönböztethető elemek rendezett sorozata  
+- **Permutáció**: *n* megkülönböztethető elemek rendezett sorozata  
 $$P_n = n!$$  
-**Ismétléses permutáció**:  
+- **Ismétléses permutáció**:  
 $$P_n^{k_1, k_2, ..., k_m} = \frac{n!}{k_1! \cdot k_2! \cdot \cdot \cdot k_m!} $$  
-**Variáció**: Adott *n* elem *k* elemű részhalamzának rendezése  
+- **Variáció**: Adott *n* elem *k* elemű részhalamzának rendezése  
 $$V_n^k = \frac{n!}{n-k!} $$  
-**Ismétléses variáció**:  
+- **Ismétléses variáció**:  
 $$V_n^{k,r} = n^k $$  
-**Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható  
+- **Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható  
 $$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$  
-**Ismétléses kombináció**:  
+- **Ismétléses kombináció**:  
 $$C_n^{k,r} = \binom{n+k-1}{k}$$  
 
 ---
 # 2. előadás
 ## Valószínűségi mező  
-**Definíció**: Egy K kisérlet eredményei, amelyeket nem tudunk felosztani kisebb részekre **elemi eseményeknek** nevezzük. Az elemi eseményeket ***ω*** jelölik. Az összes elemi esemény halmazát **mintatérnek** (valószínűségi térnek) nevezzük. Jelölése: ***Ω***
+- **Definíció**: Egy K kisérlet eredményei, amelyeket nem tudunk felosztani kisebb részekre **elemi eseményeknek** nevezzük. Az elemi eseményeket $\omega$ (kis omega) jelölik. Az összes elemi esemény halmazát **mintatérnek** (valószínűségi térnek) nevezzük. Jelölése: $\Omega$ (nagy omega)
 
 - **Példa**:  
   Érmedobás: $Ω = \{Fej,Írás\}$
@@ -25,16 +25,18 @@ $$C_n^{k,r} = \binom{n+k-1}{k}$$
 
 ## Relatív gyakoriság
 
-**Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:  
+- **Definíció:** Ha egy kisérletet *n* alkalommal ismétlünk, és $A$ esemény $k_a$ alkalommal fordul elő akkor:  
 $$\frac{k_a}{n}$$  
 nevezzük **relatív gyakoriságnak**.
+- Tegyük fel, hogy egy szabályos kockát feldobunk 60-szor, és megvizsgáljuk, hogy hányszor esett 6-os. Ha a 60 dobás során 6-os 15 alkalommal fordult elő, akkor a 6-os esemény relatív gyakorisága: 
+$$\frac{k_a}{n} = \frac{15}{60} = 0.25$$
 
 ---
 
 ## Eloszlás  
-$Ω = \{ω_1,...,ω_N\}$ mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.
-Például eloszlás lesz  
-$$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
+$Ω = \{ω_1,...,ω_N\}$ mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.  
+Például: egy zsákban van 10 golyó, benne van 2 piros, 5 kék, és 3 fehér golyó. Ezeknek az eloszlása így fog kinézni:  
+$$p_{piros} = 0.2 \quad p_{kék} = 0.5 \quad p_{fehér} = 0.3$$
 
 ### Jellemzői
 - $p_i$ számok nem negatívak
@@ -44,26 +46,60 @@ $$p_1 = 0.2 \quad p_2 = 0.5 \quad p_3 = 0.3$$
 ---
 
 ## Klasszikus valószínűség
-**Definíció:** ha egy kisérlet lehetséges kimenetelei egyenlően valószínűek akkor A esemény valószínűsége:  
+- **Definíció:** ha egy kisérlet lehetséges kimenetelei egyenlően valószínűek akkor A esemény valószínűsége:  
 $$P(A) = \frac{\text{kedvező esetek száma}} {\text{összes lehetséges eset száma}}$$
+
+- **Például**: Feldobunk egy szabályos dobókockát, mennyi a valószínűsége, hogy párost dobunk?  
+
+  Kedvező esetek száma: $3 (2, 4, 6)$  
+
+  Összes eset száma: $6 (1, 2, 3, 4, 5, 6)$  
+
+  $P(\text{páros}) = \frac{3}{6} = 0.5$
 
 ### A valószínűség geometriai kiszámítása
 
-$$P(A) = \lambda(\text{pont})/\lambda(\text{összes})$$  
+$$P(A) = \frac{\lambda(\text{pont})}{\lambda(\text{összes})}$$  
 ahol $\lambda$ a hossz, terület vagy térfogat, ha egyenesen, síkon vagy térben vagyunk.
+
+- **Például**: Adott egy egységhosszú négyzet, benne egy fél egység sugarú kör. Mennyi a valószínűsége hogy véletlenszerűen választva egy pontot a pont a kör belsejébe fog esni?  
+
+  Négyzet területe: $\lambda(\text{összes}) = 1 \cdot 1 = 1$  
+
+  Kör területe: $\lambda(\text{pont}) = \pi r^2 = \pi (\frac{1}{2})^2 = \frac{\pi}{4}$  
+
+  $P(\text{körbe esik}) = \frac{\lambda(\text{pont})}{\lambda(\text{összes})} = \frac{\frac{\pi}{4}}{1} = \frac{\pi}{4} \approx 0.785$
 
 ---
 
 ## Feltételes valószínűség  
-**Definíció**:  
+- **Definíció**:  
 A feltételes valószínűség megmutatja $A$ valószínűségét, ha $B$ bekövetkezett:  
 $$P(A|B) = \frac{P(A \cap B)}{P(B)}$$  
+- **Például**: Egy urnában van 3 piros, 2 kék, 5 zöld golyó. Mennyi annak a valószínűsége, hogy a kihúzott golyó piros, ha tudjuk hogy egy zöldet sem húztunk?  
 
+  $$P(B) = P(\text{nem zöld}) = \frac{5}{10}$$  
+
+  $$P(A \cap B) = P(\text{piros és nem zöld}) = P(\text{piros}) = \frac{3}{10}$$
+
+  $$P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{\frac{3}{10}}{\frac{5}{10}} = \frac{3}{5}$$
 ---
 
 ## Teljes valószínűség tétele  
-**Definíció**: Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
+- **Definíció**: Legyen $B_1, B_2, ...$ teljes eseményrendszer. Ha $P(B_i)>0$ bármely $i$ esetén, akkor $A$:  
 $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$  
+- **Például**: Egy gyárban három gép gyárt termékeket.
+  Az első gép a termékek 50%-át gyártja, és a hibás termékek aránya 2%.
+  A második gép a termékek 30%-át gyártja, és a hibás termékek aránya 3%.
+  A harmadik gép a termékek 20%-át gyártja, és a hibás termékek aránya 5%.
+  Mi annak a valószínűsége hogy véletlenszerűen választva hibás terméket húzunk ki?  
+
+  |           | Első gép | Második gép | Harmadik gép |
+  |-----------|----------|-------------|--------------|
+  |$P(A\|B_i)$| $50\%$   | $30\%$      | $20\%$       |
+  |$P(B_i)$   | $2\%$    | $3\%$       | $5\%$        |
+
+  $P(A) = 0.5 \cdot 0.02 + 0.3 \cdot 0.03 + 0.2 \cdot 0.05 = 0.029 = 2.9\%$
 
 ---
 
@@ -72,6 +108,9 @@ $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$
 $$P(B|A) = \frac{P(A|B) \cdot P(B)}{P(A)}$$  
 **Bayes tétel**:  
 $$P(B_i|A) = \frac{P(A|B_i)P(B_i)}{\sum_{j=1}^\infty P(A|B_j)P(B_j)}$$  
+
+- **Például**: Mennyi a valószínűsége, hogy a második gépből húzzuk ki a terméket, ha tudjuk hogy hibás?
+  $$P(B_2|A) = \frac{0.3 \cdot 0.03}{0.029} \approx 0.3103 = 31.03\% $$
 
 ---
 
@@ -89,6 +128,33 @@ $$P(A_iA_j) = P(A_i)P(A_j), i\not ={j}$$
 **Definíció**: Azt mondjuk, hogy az $A_1, A_2, ...$ események **teljesen** függetlenek, ha bármely eseményszámra és bármely indexű eseményekre független, azaz:
 
 $$P(A_{i_1}A_{i_2}...A_{i_k}) = P(A_{i_1})P(A_{i_2})...P(A_{i_k})$$
+
+### Például
+Egy szabályos hatoldalú dobókockát feldobunk egyszer, és megvizsgáljuk a következő eseményeket:  
+
+$A:\text{a dobott szám páros}$ $(2,4,6)$  
+
+$B:\text{a dobott szám nagyobb, mint 3}$ $(4,5,6)$  
+
+$C:\text{a dobott szám 6}$ $(6)$  
+
+1. Független-e $A$ és $B$?  
+
+   $P(A) = \frac{3}{6} = \frac{1}{2}$  
+
+   $P(B) = \frac{3}{6} = \frac{1}{2}$  
+
+   $P(A \cap B) = \frac{2}{6} = \frac{1}{3}$
+
+   $P(A \cap B) \not = {P(A) \cdot P(B)}$, tehát a két esemény nem független
+
+2. Páronként függetlenek?  
+   
+   Mivel már $A$ és $B$ sem független, ezért nem teljesül, hogy közülük bármelyik kettő független, szóval nem páronként függetlenek.
+
+3. Teljesen függetlenek?  
+
+   Mivel az események már páronként sem függetlenek, ezért teljes függetlenségük sem áll fenn.
 
 ---
 
@@ -113,9 +179,13 @@ $$P(X = 6) = \frac{1}{6}$$
 ## Várható érték 
 
 **Definíció**: Egy valószínűségi változó súlyozott átlaga.  
+
 **Képlete**: $\sum_{k=1}^\infty p_kx_k$, ahol $p_k$ a valószínűség, $x_k$ az érték  
+
 **Például**:  Kockadobások várható értéke: $\frac{1}{6}\cdot1+\frac{1}{6}\cdot2+\frac{1}{6}\cdot3+\frac{1}{6}\cdot4+\frac{1}{6}\cdot5+\frac{1}{6}\cdot6 =3.5$  
+
 **Második momentum**: $EX^2 = \sum_{k=1}^\infty p_kx^2_k$  
+
 **Jellemzői**:
   - Lineáris: 
     - $E(X+Y)=EX+EY$
@@ -170,16 +240,21 @@ $$D^2X = \text{Var}(X) = EX^2 - E^2X$$
 ## Poisson eloszlás várható értékének levezetése (5-ért)
 
 1. Felírjuk a várható érték képletét a Poisson eloszlásra  
-   $$EX = \sum_{k=0}^\infty k\cdot\frac{\lambda^k}{k!}e^{-\lambda}$$
+   $$EX = \sum_{k=0}^\infty k\cdot\frac{\lambda^k}{k!}e^{-\lambda}$$  
+   
 2. $k = 0$ szorzó elhagyható, lehet egyszerűsíteni a $k$-val, tehát:  
    $$EX = \sum_{k=1}^\infty\frac{\lambda^k}{(k-1)!}e^{-\lambda}$$  
+
 3. $k-1$ helyére írjunk $l$-t, tehát:
    $$EX = \sum_{l=0}^\infty\frac{\lambda^{l+1}}{l!}e^{-\lambda}$$  
+
 4. Kiemelünk egy $\lambda$-t a számlálóból, kihozzuk a szumma elé, és kiemeljük az $e^{-\lambda}$  
    $$EX = \lambda e^{-\lambda} \sum_{l=0}^\infty\frac{\lambda^{l}}{l!}$$  
+
 5. $\sum_{l=0}^\infty\frac{\lambda^{l}}{l!} = e^\lambda$ Taylor-sort felhasználva, ebből következik  
    $$EX = \lambda e^{-\lambda} e^\lambda$$
 6. $e^\lambda \cdot \frac{1}{e^\lambda} = 1$, tehát:  
+7. 
    $$EX = \lambda$$
 
 ---
@@ -217,8 +292,11 @@ $$F(x) = \int_{-\infty}^xf(x)dx$$
 
 ## Várható érték
 Itt nem alkalmazható a diszkrét várható érték képletet, mert megszámláhatatlan sok valószínűségi változó van.  
-**Képlete:** 
-$$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
+
+**Képlete:**  
+
+$$EX = \int_{-\infty}^{+\infty} xf(x)dx$$  
+
 **Tulajdonságai:**
   - Lineáris
   - Ha $X\geq 0$, akkor $EX\geq 0$
@@ -254,10 +332,34 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
      **Definíció:** Mivel minden normális eloszlás a standard normális egy transzformáltjával egyenlő, bármely x pont átalakítható egy vele azonos standard normális-beli z ponttá.
      $$z = \frac{x-\mu}{\sigma}$$
 
-## Központ határeloszlás tétele
+## Központi határeloszlás tétele
 **Definició:** egy elég nagy mintaméretű független és azonos eloszlású valószínűségi változók összege (vagy átlag) közelítőleg normális eloszlást követ, még akkor is, ha az eredeti változók eloszlása nem normális.
 
 # 5. előadás
+
+## Kontingencia táblázat  
+
+**Definíció**: Többváltozós adatok elemzésére használt tábla, amely sorokban és oszlopokban gyakoriságokat vagy relatív gyakoriságokat mutat.  
+
+- **Marginalis (peremeloszlások)**:  
+  A sorok és oszlopok összegzett értékei, amelyek az egyes változók eloszlását adják.  
+
+#### Példa:  
+|        | $y_1$    | $y_2$    | $y_3$   | ... | $\sum$   |
+|--------|----------|----------|---------|-----|----------|
+| $x_1$  | $p_{11}$ | $p_{12}$ | $p_{13}$| ... | $p_{1.}$ |
+| $x_2$  | $p_{21}$ | $p_{22}$ | $p_{23}$| ... | $p_{2.}$ |
+| $x_3$  | $p_{31}$ | $p_{32}$ | $p_{33}$| ... | $p_{3.}$ |
+|  ...   | ...      | ...      | ...     | ... | ...      |
+| $\sum$ | $p_{.1}$ | $p_{.2}$ | $p_{.3}$| ... | 1        |
+
+ahol, $p_{i.}$ és $p_{.j}$ marginális eloszlások.  
+$$p_{i.} = P(X = x_i) = \sum_{j=1}^\infty p_{ij}$$  
+$$p_{.j} = P(X = x_i) = \sum_{i=1}^\infty p_{ij}$$  
+$$\sum_{i=1}^\infty \sum_{j=1}^\infty p_{ij} = 1$$  
+
+---
+
 ## Mintavételi módszerek  
 - **Véletlenszerű mintavétel**: Minden elemnek azonos esélye van bekerülni.  
 
@@ -294,21 +396,6 @@ Az \( q \)-adik kvantilis az az érték, amelynél az elemek \( q \)-ad része k
 
 ---
 
-### Kontingencia táblázat  
-
-**Definíció**: Többváltozós adatok elemzésére használt tábla, amely sorokban és oszlopokban gyakoriságokat vagy relatív gyakoriságokat mutat.  
-
-- **Marginalis (peremeloszlások)**:  
-  A sorok és oszlopok összegzett értékei, amelyek az egyes változók eloszlását adják.  
-
-#### Példa:  
-|       | B1 | B2 | Összesen |  
-|-------|----|----|----------|  
-| A1    | 10 | 20 | 30       |  
-| A2    | 15 | 25 | 40       |  
-| Össz. | 25 | 45 | 70       |  
-
----
 
 ### Függetlenség  
 **Definíció**: Két változó független, ha az együttes eloszlásuk a peremeloszlások szorzataként írható fel:  
