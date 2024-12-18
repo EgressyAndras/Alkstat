@@ -448,12 +448,7 @@ $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
 ## Empirikus eloszlásfüggvény
 - **Definíció**: AAz empirikus eloszlásfüggvény a minta kumulatív gyakoriságát írja le, ami azt jelenti, hogy az empirikus eloszlásfüggvény a minta adatai alapján mutatja meg, hogy az egyes értékekhez tartozó valószínűségek hogyan halmozódnak fel.  
 
-$$F_n^*(x) =
-  \begin{cases}
-    0, & \text{ha } x \leq X_1^* \\
-    \frac{k}{n}, & \text{ha } X_k^* < x \leq X_{k+1}^* \\
-    1, & \text{ha } x > X_n^*
-  \end{cases}$$
+  ![empeloszl](empeloszl.png)
 
 - **Például**: Tegyük fel hogy a minta adatai a következőek:  
 
@@ -471,7 +466,7 @@ $$F_n^*(x) =
 
   Ha $x > 10$ akkor $F_n^*(x) = 1$  
 
-- A **mean(X < t)** kifejezés azt jelenti, hogy az $x$ valószínűségi változó kisebb, mint $t$, és az empirikus eloszlásfüggvény segítségével kiszámolhatjuk a mintában az összes olyan érték arányát, amely kisebb, mint $t$. Az empirikus eloszlásfüggvény $F_n^*(t)$ konkrétan megadja a valószínűséget, hogy a mintában szereplő értékek közül hány érték kisebb vagy egyenlő, mint $t$.
+- A **P(X < t)** kifejezés azt jelenti, hogy az $x$ valószínűségi változó kisebb, mint $t$, és az empirikus eloszlásfüggvény segítségével kiszámolhatjuk a mintában az összes olyan érték arányát, amely kisebb, mint $t$. Az empirikus eloszlásfüggvény $F_n^*(t)$ konkrétan megadja a valószínűséget, hogy a mintában szereplő értékek közül hány érték kisebb vagy egyenlő, mint $t$.
 
 ---
 
@@ -490,7 +485,7 @@ $$F_n^*(x) =
 
 ## Empirikus szórásnégyzet  
 - **Képlet**:  
-  $$s_n^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$  
+  $$s_n^2 = \frac{1}{n} \sum_{i=1}^n (X_i - \bar{X})^2$$  
 
 - **Korrigált empirikus szórásnégyzet képlete:**
   $$s_n^{*2} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$  
@@ -500,10 +495,10 @@ populáció szórásnégyzetének.
 
 ## Medián, Kvantilis, Kvartilis  
 - **Medián**: Az az érték, amelynél a minta fele kisebb, fele nagyobb (osztópont).  
-  $$P(X<\mu)<1/2 \qquad \text{és} \qquad P(X>\mu)\leq1/2$$
+  $$P(X<\mu)<1/2 \qquad \text{és} \qquad P(X>\mu)\leq1/2$$  
   $\mu$ - medián
 - **Kvantilis**: Az $q$-adik kvantilis az az érték, amelynél a megfigyelések $q$-ad része kisebb vagy egyenlő.  
-  $$P(X < Q(q)) < q \qquad \text{ha} \qquad P(X > Q(q)) \leq 1-q$$
+  $$P(X < Q(q)) < q \qquad \text{ha} \qquad P(X > Q(q)) \leq 1-q$$  
   ahol $Q(q)$ a q-adik kvantilis, azaz az az érték, amelyhez tartozik az a valószínűség, hogy $X$ kisebb vagy egyenlő, mint $Q(q)$  
 
 - **Kvartilisok**: 
