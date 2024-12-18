@@ -365,7 +365,7 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
 - **Marginalis (peremeloszlások)**:  
   A sorok és oszlopok összegzett értékei, amelyek az egyes változók eloszlását adják.  
 
-#### Példa:  
+### Példa:  
 |        | $y_1$    | $y_2$    | $y_3$   | ... | $\sum$   |
 |--------|----------|----------|---------|-----|----------|
 | $x_1$  | $p_{11}$ | $p_{12}$ | $p_{13}$| ... | $p_{1.}$ |
@@ -384,7 +384,7 @@ $$\sum_{i=1}^\infty \sum_{j=1}^\infty p_{ij} = 1$$
   $$p_{ij} = p_{i.}p_{.j}$$  
 ---
 
-### Együttes eloszlásfüggvény  
+## Együttes eloszlásfüggvény  
 **Definíció**: Ez a függvény azt mutatja meg, hogy a két változó együttesen milyen valószínűséggel esik egy adott tartományba. Az együttes eloszlásfüggvény segít megérteni a két változó közötti kapcsolatot és azok együttes eloszlását. Két változó $X$ és $Y$ együttes eloszlása: $F(x, y)$
 
 - Tulajdonságok:  
@@ -396,20 +396,20 @@ $$\sum_{i=1}^\infty \sum_{j=1}^\infty p_{ij} = 1$$
 
 ---
 
-### Együttes sűrűségfüggvény  
+## Együttes sűrűségfüggvény  
 **Definíció**: két vagy több valószínűségi változó közös sűrűségi függvénye. Két valószínűségi változó $X$ és $Y$ esetén az együttes sűrűségfüggvény 
 $f_{X,Y}(x,y)$ megadja a valószínűségi változók együttes sűrűségét egy adott $(x,y)$ pontban. Ez a függvény az egyes változók együttes eloszlásának sűrűségét írja le, és segít meghatározni, hogy két valószínűségi változó hogyan viszonyul egymáshoz egy adott tartományban.
 
 ---
 
-### Kovariancia  
+## Kovariancia  
 **Definíció**: Két változó közötti lineáris kapcsolat mértéke.  
 
 $$cov(X,Y) = E(XY)-EX \cdot EY$$
 
 ---
 
-### Korreláció  
+## Korreláció  
 - **Definíció**: A kovariancia és a szórások hányadosa, amely normált mértékét adja a lineáris kapcsolatnak.  
 
 $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
@@ -428,109 +428,110 @@ $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
 # 7. előadás
 
 ## Mintavételi módszerek  
-- **Véletlenszerű mintavétel**: Minden elemnek azonos esélye van bekerülni.  
-
-### Mintátlag  
-- $$\bar{X}$$: Mintában szereplő elemek átlaga.  
-- Tulajdonság: Mintanagyság növelésével $$\bar{X}$$ közeledik \( E(X) \)-hez.  
-
-### Medián  
-Az az érték, amelynél a minta elemeinek fele kisebb, fele nagyobb.  
-
-### Kvantilis  
-Az \( q \)-adik kvantilis az az érték, amelynél az elemek \( q \)-ad része kisebb.  
-
-
-### Függetlenség  
-**Definíció**: 
-$$P(A \cap B) = P(A) \cdot P(B)$$  
-
-#### Példa:  
-- Ha a fenti kontingencia táblában:  
-  $$P(A1, B1) = \frac{10}{70}, \quad P(A1) \cdot P(B1) = \frac{30}{70} \cdot \frac{25}{70}$$  
-  és ezek egyenlők, akkor \( A \) és \( B \) függetlenek.
+- **Egyszerű véletlen mintavétel**
+  - **Definíció**: Egyszerű véletlen mintavétel esetén az alapsokaság minden egyede
+  egyforma eséllyel kerül a mintába, azaz a minta leírható független, azonos
+  eloszlású (FAE) változók sorozataként. A mintavétel lehet visszatevéses
+  vagy visszatevés nélküli.  
+  - **Például**: egy vállalat szeretne 10 alkalmazottat kiválasztani egy tréningprogramra egy 50 fős munkahelyi csoportról. Az alkalmazottakat véletlenszerűen választják ki, így minden egyes alkalmazott egyforma eséllyel kerülhet a mintába, függetlenül attól, hogy melyik alkalmazottat választották már ki.
+- **Rétegzett mintavétel**
+  - **Definíció**: Ha az alapsokaságot valamilyen szempont (nem, kor stb.) szerint részekre bontjuk, és ezekből az ún. rétegekből egymástól függetlenül veszünk egyszerű véletlen mintákat, akkor rétegzett mintavételről beszélünk.
+  - **Például**: egy egyetem szeretne véleményt kérni a hallgatóktól egy új tantárgy bevezetéséről. Az egyetem alapsokasága különböző karokból áll: jogi kar, orvosi kar és gazdaságtudományi kar. A mintavételt úgy végzik, hogy először rétegekre bontják a hallgatókat karok szerint, majd minden karból végeznek egyszerű véletlen mintavételt.
 
 ---
 
+## Minta
+- **Definíció**: A minta a statisztikában egy véletlenszerűen kiválasztott adatcsoportot jelent, amely egy alapsokaságot reprezentál. A minta egy konkrét példája, amelyet a gyakorlatban mérünk vagy megfigyelünk.
 
 ---
 
-### Minta definíciója  
-**Definíció**: Egy minta egy populációból véletlenszerűen kiválasztott elemek halmaza, amelyeket a populáció tulajdonságainak vizsgálatára használunk.
+## Empirikus eloszlásfüggvény
+- **Definíció**: AAz empirikus eloszlásfüggvény a minta kumulatív gyakoriságát írja le, ami azt jelenti, hogy az empirikus eloszlásfüggvény a minta adatai alapján mutatja meg, hogy az egyes értékekhez tartozó valószínűségek hogyan halmozódnak fel.  
+
+$$F_n^*(x) =
+  \begin{cases}
+    0, & \text{ha } x \leq X_1^* \\
+    \frac{k}{n}, & \text{ha } X_k^* < x \leq X_{k+1}^* \\
+    1, & \text{ha } x > X_n^*
+  \end{cases}$$
+
+- **Például**: Tegyük fel hogy a minta adatai a következőek:  
+
+  $$X_1^* = 2, X_2^* = 4, X_3^* = 6, X_4^* = 8, X_5^* = 10$$  
+
+  Ha $x \leq 2$ akkor $F_n^*(x) = 0$,  
+
+  Ha $2 < x \leq 4$ akkor $F_n^*(x) = \frac{1}{5}$,  
+
+  Ha $4 < x \leq 6$ akkor $F_n^*(x) = \frac{2}{5}$,  
+
+  Ha $6 < x \leq 8$ akkor $F_n^*(x) = \frac{3}{5}$,  
+
+  Ha $8 < x \leq 10$ akkor $F_n^*(x) = \frac{4}{5}$,  
+
+  Ha $x > 10$ akkor $F_n^*(x) = 1$  
+
+- A **mean(X < t)** kifejezés azt jelenti, hogy az $x$ valószínűségi változó kisebb, mint $t$, és az empirikus eloszlásfüggvény segítségével kiszámolhatjuk a mintában az összes olyan érték arányát, amely kisebb, mint $t$. Az empirikus eloszlásfüggvény $F_n^*(t)$ konkrétan megadja a valószínűséget, hogy a mintában szereplő értékek közül hány érték kisebb vagy egyenlő, mint $t$.
 
 ---
 
-### Empirikus eloszlásfüggvény  
-**Definíció**: Az empirikus eloszlásfüggvény a minta kumulatív gyakoriságát írja le.  
-
-- **Képlet**:  
-  $$F_n(x) = \frac{1}{n} \sum_{i=1}^n \mathbb{1}_{X_i \leq x}$$  
-  ahol \( \mathbb{1}_{X_i \leq x} \) az indikátorfüggvény, amely 1, ha \( X_i \leq x \), és 0, különben.
-
----
-
-### Hisztogram  
-**Különbség a gyakorisági és sűrűségi hisztogram között**:  
+## Hisztogram   
 - **Gyakorisági hisztogram**: A mintában előforduló értékek gyakoriságát ábrázolja.  
 - **Sűrűségi hisztogram**: A mintabeli gyakoriságokat a csoport szélességével normalizálja, így területe 1.  
 
 ---
 
-### Mintátlag és várható érték  
+## Mintátlag és várható érték  
 - **Mintátlag**:  
-  $$\bar{X} = \frac{1}{n} \sum_{i=1}^n X_i$$  
-- **Tulajdonság**: A mintaméret (\(n\)) növelésével a mintátlag közelít a várható értékhez (\(E(X)\)).  
+  $$\bar{X} = \frac{1}{n}(X_1+X_2+...+X_n)$$
+- **Tulajdonság**: A mintaátlag torzítatlan és konzisztens becslése a populáció várható értékének. Vagyis a mintaméret $n$ növelésével a mintátlag közelít a várható értékhez $EX$.  
 
 ---
 
-### Empirikus szórásnégyzet  
+## Empirikus szórásnégyzet  
 - **Képlet**:  
-  $$S^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$  
-  Ez egy becslés a populáció szórásnégyzetére.  
+  $$s_n^2 = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$  
+
+- **Korrigált empirikus szórásnégyzet képlete:**
+  $$s_n^{*2} = \frac{1}{n-1} \sum_{i=1}^n (X_i - \bar{X})^2$$  
+  A korrigált empirikus szórásnégyzet torzítatlan és konzisztens becslése a
+populáció szórásnégyzetének.
+---
+
+## Medián, Kvantilis, Kvartilis  
+- **Medián**: Az az érték, amelynél a minta fele kisebb, fele nagyobb (osztópont).  
+  $$P(X<\mu)<1/2 \qquad \text{és} \qquad P(X>\mu)\leq1/2$$
+  $\mu$ - medián
+- **Kvantilis**: Az $q$-adik kvantilis az az érték, amelynél a megfigyelések $q$-ad része kisebb vagy egyenlő.  
+  $$P(X < Q(q)) < q \qquad \text{ha} \qquad P(X > Q(q)) \leq 1-q$$
+  ahol $Q(q)$ a q-adik kvantilis, azaz az az érték, amelyhez tartozik az a valószínűség, hogy $X$ kisebb vagy egyenlő, mint $Q(q)$  
+
+- **Kvartilisok**: 
+  - Az alsó kvaritlis a 0.25-kvantilis $(Q_1)$  
+  - A felső kvartilis a 0.75-kvantilis $(Q_3)$  
 
 ---
 
-### Medián, Kvantilis, Kvartilis  
-- **Medián**: Az az érték, amelynél a minta fele kisebb, fele nagyobb.  
-- **Kvantilis**: Az \( q \)-adik kvantilis az az érték, amelynél a megfigyelések \( q \)-ad része kisebb vagy egyenlő.  
-- **Kvartilisok**: Az alsó és felső kvartilis az első (25%) és harmadik (75%) kvantilis.  
-
-- **Képlet**:  
-  - Medián (\( Q_2 \)): Ha \( n \) páros:  
-    $$Q_2 = \frac{X_{(n/2)} + X_{(n/2 + 1)}}{2}$$  
-    Ha \( n \) páratlan:  
-    $$Q_2 = X_{((n+1)/2)}$$  
-  - Alsó kvartilis (\( Q_1 \)):  
-    $$Q_1 = F^{-1}(0.25)$$  
-  - Felső kvartilis (\( Q_3 \)):  
-    $$Q_3 = F^{-1}(0.75)$$  
-
----
-
-### Dobozábra  
+## Dobozábra  
 **Összetevői**:  
 1. Minimum.  
-2. Alsó kvartilis (\( Q_1 \)).  
-3. Medián (\( Q_2 \)).  
-4. Felső kvartilis (\( Q_3 \)).  
+2. Alsó kvartilis $Q_1$.  
+3. Medián $Q_2$.  
+4. Felső kvartilis $Q_3$.  
 5. Maximum.  
 6. Szélsőséges értékek (outlierek), ha vannak.  
 
----
-
-### Maximum likelihood (ML) módszer  
-**Definíció**: A maximum likelihood becslés az a paraméterérték, amely maximális valószínűséget biztosít a megfigyelt mintára.  
-
-- **Formális megfogalmazás**:  
-  Keressük azt a \( \theta \)-t, amely maximalizálja a likelihood függvényt:  
-  $$L(\theta) = \prod_{i=1}^n f(X_i \mid \theta)$$  
-  ahol \( f(X_i \mid \theta) \) a sűrűségfüggvény.  
-
-- **Log-likelihood**: Gyakran egyszerűbb a logaritmált likelihood-dal dolgozni:  
-  $$\ell(\theta) = \log L(\theta) = \sum_{i=1}^n \log f(X_i \mid \theta)$$  
+![boxplot](boxplot.png)
 
 ---
 
+## Maximum Likelihood  
+- A Maximum Likelihood becslés lényege, hogy egy adott valószínűségi eloszlás paramétereit úgy becsüljük meg, hogy maximalizáljuk a minta megfigyeléseinek valószínűségét. Más szóval, a cél az, hogy olyan paramétereket találjunk, amelyek a legnagyobb valószínűséget biztosítják a minta előfordulására.  
+- **Például:** Ha egy mintát szeretnénk modellálni egy normál eloszlással, akkor a normál eloszlás paraméterei ($\mu, \sigma$) a minta átlaga és szórása lesznek a Maximum Likelihood becslés alapján, mivel ezek azok a paraméterek, amelyek a legnagyobb valószínűséggel magyarázzák a megfigyelt adatokat.
+
+---
+
+# 8. előadás
 ### Z-próba  
 **Definíció**: Olyan statisztikai próba, amelyet általában nagy minták esetén alkalmazunk, amikor a populáció szórásnégyzete ismert.  
 
