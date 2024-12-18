@@ -528,40 +528,78 @@ populáció szórásnégyzetének.
 ---
 
 # 8. előadás
-### Z-próba  
-**Definíció**: Olyan statisztikai próba, amelyet általában nagy minták esetén alkalmazunk, amikor a populáció szórásnégyzete ismert.  
+## Z-próba  
+- **Definíció**: Olyan statisztikai próba, amelyet nagy minták esetén alkalmazunk a populáció várható értékének vizsgálatára, ha a populáció szórásnégyzete ismert.  
+- **Hipotézis**: A nullhipotézis $H_0$ általában azt feltételezi, hogy a populáció várható értéke megegyezik egy adott értékkel $\mu_0$. Az alternatív hipotézis $H_1$ kifejezheti azt, hogy a várható érték ettől eltér, kisebb vagy nagyobb.
+  
+  $H_0: \mu = \mu_0$  
 
-- **Próbastatisztika**:  
-  $$Z = \frac{\bar{X} - \mu_0}{\sigma / \sqrt{n}}$$  
+  $H_1:$  
+
+    - Kétoldali: $\mu \not = {\mu_0}$  
+    - Baloldali: $\mu < \mu_0$  
+    - Jobboldali: $\mu > \mu_0$  
+- **Próbastatisztika**: A z-próbastatisztika segítségével megmérhetjük, hogy a mintaátlag mennyire tér el a nullhipotézisben megadott várható értéktől, figyelembe véve a szórást és a minta méretét.
+  $$Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$  
   ahol:  
-  - \( \bar{X} \): mintátlag,  
-  - \( \mu_0 \): nullhipotézis szerinti várható érték,  
-  - \( \sigma \): ismert populáció szórása,  
-  - \( n \): minta nagysága.  
+  - $\bar{X}$: mintátlag,  
+  - $\mu_0$: nullhipotézis szerinti várható érték,  
+  - $\sigma$: ismert populáció szórása,  
+  - $n$: minta nagysága.  
 
-- **Döntési szabály**:  
-  Ha \( |Z| > Z_\text{kritikus} \), elutasítjuk a nullhipotézist.  
+- **Kritikus érték számítása:**
+  A kritikus értéket a szignifikanciaszint $\alpha$ határozza meg, amely a téves elutasítás (I. fajú hiba) valószínűsége. A standard normális eloszlás alapján a következőképp számítjuk:
+  - Kétoldali tesztnél:  
+   $$Z_{\text{kritkus}} = Z_{1-\frac{\alpha}{2}}$$  
 
+  - Egyoldali tesztnél:  
+   $$Z_{\text{kritkus}} = Z_{1-\alpha}$$  
+
+- **Döntési szabály**
+A z-próbával kapott $Z$ értéket összehasonlítjuk a kritikus értékkel $Z_\text{kritkus}$.
+  - Ha $|Z| \leq Z_\text{kritikus}$: a nullhipotézist elfogadjuk.
+  - Ha $|Z| > Z_\text{kritikus}$: a nullhipotézist elutasítjuk.
 ---
 
-### T-próba  
-**Definíció**: A t-próbát akkor használjuk, ha a populáció szórása nem ismert, és a minta kicsi (\(n < 30\)).  
+## T-próba (Student-féle)  
+- **Definíció**: A t-próba hasonló a z-próbához. A fő különbség a két próba között, hogy a t-próba esetén nem ismert a szórásnégyzet (variancia).  
+- **Hipotézis**: A nullhipotézis $H_0$ általában azt feltételezi, hogy a populáció várható értéke megegyezik egy adott értékkel $\mu_0$. Az alternatív hipotézis $H_1$ kifejezheti azt, hogy a várható érték ettől eltér, kisebb vagy nagyobb.
+  
+  $H_0: \mu = \mu_0$  
+
+  $H_1:$  
+
+    - Kétoldali: $\mu \not = {\mu_0}$  
+    - Baloldali: $\mu < \mu_0$  
+    - Jobboldali: $\mu > \mu_0$  
 
 - **Próbastatisztika**:  
-  $$T = \frac{\bar{X} - \mu_0}{S / \sqrt{n}}$$  
-  ahol \( S \) a minta szórása.  
+  $$T = \frac{\bar{X} - \mu_0}{\frac{S}{\sqrt{n}}}$$  
+  ahol $S$ a minta szórása.  
 
 - **Egy mintás T-próba**:  
   Vizsgálja, hogy a minta átlaga megegyezik-e egy adott értékkel.  
+  **Példa**: Egy új gyógyszer hatékonyságát vizsgálják, és az eredményeket összevetik egy standard értékkel.
 
-- **Kétmintás T-próba (nem kell)**.  
+- **Kritikus érték számítása:**
+  A kritikus érték a t-eloszlás táblázatából határozható meg:
+    - Szabadságfok alapján (mintaszám-1): $df = n-1$
+    - Szignifikanciaszint szerint $(\alpha)$
+  - Kétoldali tesztnél:  
+   $$T_{\text{kritkus}} = T_{1-\frac{\alpha}{2}}$$  
 
-- **Döntési szabály**:  
-  A kritikus érték alapján hasonlítjuk össze a számított \( T \)-t.  
+  - Egyoldali tesztnél:  
+   $$T_{\text{kritkus}} = T_{1-\alpha}$$  
+
+- **Döntési szabály**
+A z-próbával kapott $Z$ értéket összehasonlítjuk a kritikus értékkel $Z_\text{kritkus}$.
+  - Ha $|T| \leq T_\text{kritikus}$: a nullhipotézist elfogadjuk.
+  - Ha $|T| > T_\text{kritikus}$: a nullhipotézist elutasítjuk.
 
 ---
 
-### Illeszkedésvizsgálat  
+# 9. előadás
+## Illeszkedésvizsgálat  
 **Definíció**: Megvizsgálja, hogy egy minta adott eloszlásból származik-e.  
 
 - **Próbastatisztika**:  
