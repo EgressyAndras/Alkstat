@@ -5,11 +5,11 @@ $$P_n = n!$$
 - **Ismétléses permutáció**:  
 $$P_n^{k_1, k_2, ..., k_m} = \frac{n!}{k_1! \cdot k_2! \cdot \cdot \cdot k_m!} $$  
 - **Variáció**: Adott *n* elem *k* elemű részhalamzának rendezése  
-$$V_n^k = \frac{n!}{n-k!} $$  
+$$V_n^k = \frac{n!}{(n-k)!} $$  
 - **Ismétléses variáció**:  
 $$V_n^{k,r} = n^k $$  
 - **Kombináció**: Legyen *n* megkülönböztethető elemünk, *k* elemet választunk úgy, hogy minden egyes elem pontosan egyszer választható  
-$$C_n^k = \binom{n}{k} = \frac{n!}{(n-k)!}$$  
+$$C_n^k = \binom{n}{k} = \frac{n!}{k!(n-k)!}$$  
 - **Ismétléses kombináció**:  
 $$C_n^{k,r} = \binom{n+k-1}{k}$$  
 
@@ -34,7 +34,7 @@ $$\frac{k_a}{n} = \frac{15}{60} = 0.25$$
 ---
 
 ## Eloszlás  
-$Ω = \{ω_1,...,ω_N\}$ mintatér esetén a $p_1,...,p_N$ értékeket eloszlásnak nevezünk.  
+Egy $Ω = \{ω_1,...,ω_N\}$ mintatér esetén a $p_1,...,p_N$ valószínűségeket eloszlásnak nevezünk.  
 Például: egy zsákban van 10 golyó, benne van 2 piros, 5 kék, és 3 fehér golyó. Ezeknek az eloszlása így fog kinézni:  
 $$p_{piros} = 0.2 \quad p_{kék} = 0.5 \quad p_{fehér} = 0.3$$
 
@@ -97,8 +97,8 @@ $$P(A) = \sum_{i=1}^n P(A|B_i) \cdot P(B_i)$$
 
   |           | Első gép | Második gép | Harmadik gép |
   |-----------|----------|-------------|--------------|
-  |$P(A\|B_i)$| $50\%$   | $30\%$      | $20\%$       |
-  |$P(B_i)$   | $2\%$    | $3\%$       | $5\%$        |
+  |$P(B_i)$   | $50\%$   | $30\%$      | $20\%$       |
+  |$P(A\|B_i)$| $2\%$    | $3\%$       | $5\%$        |
 
   $P(A) = 0.5 \cdot 0.02 + 0.3 \cdot 0.03 + 0.2 \cdot 0.05 = 0.029 = 2.9\%$
 
@@ -276,7 +276,7 @@ $F_X(x)=P(X<x)$
 - $\lim_{x→\infty}F(x) = 1, \lim_{x→-\infty}F(x) = 0$ 
 
 ### Például
-Egy érme feldobásánál az eloszlásfüggvény:
+Egy érme feldobásánál az eloszlásfüggvény:  
 $F_x(x) = 0 \text{ a } x < 0 \text{ tartományban }$  
 $F_x(x) = \frac{1}{2} \text{ a } 0 \leq x < 1 \text{ tartományban }$  
 $F_x(x) = 1 \text{ a } x \geq 0 \text{ tartományban }$  
@@ -326,7 +326,7 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
 ---
 
 ## Nagy számok törvénye  
-**Definíció**: Egy minta átlaga nagy mintaszám esetén közelít a várható értékhez.
+**Definíció**: Egy minta átlaga nagy mintaszám esetén közelít a várható értékhez.  
 **Például**: Tegyük fel, hogy egy érmét dobunk. Ha csak 5 alkalommal dobsz érmét, előfordulhat, hogy 4-szer fej és 1-szer írás lesz. Ha 1,000, 10,000 vagy több alkalommal dobod az érmét, az átlag egyre inkább közelíteni fog a 0.5-höz.
 
 ---
@@ -340,9 +340,12 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
      - **Sűrűségfüggvény**:  
       ![surusegfuggveny](egyenletessurusegfv.png)  
      - **Várható érték**:  
-       $$E(X) = \frac{a+b}{2}$$  
+       $$EX = \int_a^b \frac{x}{b-a} = \left[\frac{x^2}{2\cdot(b-a)}\right]_a^b = \frac{b^2-a^2}{2\cdot(b-a)} = \frac{(b-a)\cdot(b+a)}{2\cdot(b-a)} = \frac{a+b}{2}$$
+     - **Második momentum:**
+       $$EX^2 = \int_a^b \frac{x^2}{b-a} = \left[\frac{x^3}{3\cdot(b-a)}\right]_a^b = \frac{b^3-a^3}{3\cdot(b-a)}$$
      - **Szórásnégyzet**:  
-       $$\text{Var}(X) = \frac{(b-a)^2}{12}$$  
+       $$\text{Var}(X) = EX^2 - E^2X = \frac{(b-a)(b^2+ab+a^2)}{3\cdot (b-a)} - \frac{(a+b)^2}{4} = \frac{b^2+ab+a^2}{3} - \frac{a^2+2ab+b^2}{4} = $$
+       $$ = \frac{4b^2+4ab+4a^2-3a^2-6ab-3b^2}{12} = \frac{b^2-2ab+a^2}{12} = \frac{(b-a)^2}{12}$$  
   2. **Normális eloszlás**  
      ![eloszlas](norm.png)
      ![suruseg](normsur.png)
@@ -350,7 +353,7 @@ $$EX = \int_{-\infty}^{+\infty} xf(x)dx$$
        $$f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
        ahol $\sigma$ a szórás, $\mu$ pedig a várható érték
      - **Standardizálás**  
-     **Definíció:** Mivel minden normális eloszlás a standard normális egy transzformáltjával egyenlő, bármely x pont átalakítható egy vele azonos standard normális-beli z ponttá.
+     **Definíció:** A standardizálás egy statisztikai eljárás, amelynek célja, hogy különböző mértékegységű vagy skálájú adatokat közös alapra hozzon, így összehasonlíthatók és feldolgozhatók legyenek. Mivel minden normális eloszlás a standard normális egy transzformáltjával egyenlő, bármely x pont átalakítható egy vele azonos standard normális-beli z ponttá.
      $$z = \frac{x-\mu}{\sigma}$$
 
 ## Központi határeloszlás tétele
@@ -446,7 +449,7 @@ $$corr(X, Y) = \frac{cov(X,Y)}{DX DY} $$
 ---
 
 ## Empirikus eloszlásfüggvény
-- **Definíció**: AAz empirikus eloszlásfüggvény a minta kumulatív gyakoriságát írja le, ami azt jelenti, hogy az empirikus eloszlásfüggvény a minta adatai alapján mutatja meg, hogy az egyes értékekhez tartozó valószínűségek hogyan halmozódnak fel.  
+- **Definíció**: Az empirikus eloszlásfüggvény a minta kumulatív gyakoriságát írja le, ami azt jelenti, hogy az empirikus eloszlásfüggvény a minta adatai alapján mutatja meg, hogy az egyes értékekhez tartozó valószínűségek hogyan halmozódnak fel.  
 
   ![empeloszl](empeloszl.png)
 
@@ -538,7 +541,7 @@ populáció szórásnégyzetének.
     - Kétoldali: $\mu \not = {\mu_0}$  
     - Baloldali: $\mu < \mu_0$  
     - Jobboldali: $\mu > \mu_0$  
-- **Próbastatisztika**: A z-próbastatisztika segítségével megmérhetjük, hogy a mintaátlag mennyire tér el a nullhipotézisben megadott várható értéktől, figyelembe véve a szórást és a minta méretét.
+- **Próbastatisztika**: A z-próbastatisztika segítségével megmérhetjük, hogy a mintaátlag mennyire tér el a nullhipotézisben megadott várható értéktől, figyelembe véve a szórást és a minta méretét.  
   $$Z = \frac{\bar{X} - \mu_0}{\frac{\sigma}{\sqrt{n}}}$$  
   ahol:  
   - $\bar{X}$: mintátlag,  
